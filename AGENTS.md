@@ -28,3 +28,10 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Forma architecture
+
+- Tool catalog lives in `src/lib/tools.ts`; each tool declares a status, and only `ready` tools may map to an engine in `src/lib/engines/` — keeps status labels honest.
+- Conversion engines are pure browser modules (no server calls) so the same UI can be packaged as a desktop app later.
+- User preferences and theme live in `src/lib/settings.tsx` (localStorage); an inline pre-hydration script applies the theme class to avoid flashes.
+- Fonts are self-hosted via @fontsource packages so the app makes no third-party requests.
