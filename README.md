@@ -1,7 +1,5 @@
 # Forma
 
-bro, make me a app. I just want to test you.
-
 This project was built with [Lovable](https://lovable.dev).
 
 ## Build with Lovable
