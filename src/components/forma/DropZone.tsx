@@ -6,11 +6,11 @@ import { FileIcon } from "./FileIcon";
 
 type Props = {
   formats: FormatId[];
-  multiple?: boolean;
-  disabled?: boolean;
-  compact?: boolean;
+  multiple?: boolean | undefined;
+  disabled?: boolean | undefined;
+  compact?: boolean | undefined;
   onFiles: (files: File[]) => void;
-  className?: string;
+  className?: string | undefined;
 };
 
 export function DropZone({ formats, multiple, disabled, compact, onFiles, className }: Props) {
