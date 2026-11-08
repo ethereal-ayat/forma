@@ -77,7 +77,7 @@ export function csvToJson(text: string, opts: CsvToJsonOptions = {}): string {
   const { typed = true, indent = 2 } = opts;
   const rows = parseCsv(text);
   if (rows.length === 0) throw new Error("The CSV file is empty.");
-  const headers = rows[0].map((h, i) => h.trim() || `column_${i + 1}`);
+  const headers = rows[0]!.map((h, i) => h.trim() || `column_${i + 1}`);
   const records = rows.slice(1).map((r) => {
     const obj: Record<string, unknown> = {};
     headers.forEach((h, i) => {
@@ -120,7 +120,7 @@ export function jsonToCsv(text: string, delimiter = ","): string {
   }
   const list = Array.isArray(data) ? data : [data];
   if (list.length === 0) throw new Error("The JSON array is empty.");
-  const flat = list.map((item) =>
+  const flat: Record<string, unknown>[] = list.map((item) =>
     item !== null && typeof item === "object" ? flatten(item) : { value: item },
   );
   const headers: string[] = [];

@@ -5,8 +5,8 @@ export type ImageOutput = "png" | "jpg" | "webp";
 export type ImageJob = {
   output: ImageOutput;
   quality: number; // 0–1, used for jpg/webp
-  width?: number; // target width in px; height keeps aspect ratio
-  background?: string; // fill for formats without transparency
+  width?: number | undefined; // target width in px; height keeps aspect ratio
+  background?: string | undefined; // fill for formats without transparency
 };
 
 export type ImageResult = {

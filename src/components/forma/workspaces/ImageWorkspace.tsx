@@ -19,7 +19,7 @@ type Item = {
   dims: { width: number; height: number } | null;
   state: "queued" | "working" | "done" | "error";
   result?: { blob: Blob; width: number; height: number; output: ImageOutput };
-  error?: string;
+  error?: string | undefined;
 };
 
 type OutputChoice = ImageOutput | "keep";
@@ -335,7 +335,7 @@ export function ImageWorkspace({ tool }: { tool: Tool }) {
 
             {anyLossy && (
               <Field label="Quality" hint={`${quality}%`}>
-                <Slider value={[quality]} min={40} max={100} step={1} onValueChange={(v) => setQuality(v[0])} />
+                <Slider value={[quality]} min={40} max={100} step={1} onValueChange={(v) => setQuality(v[0] ?? quality)} />
                 <div className="flex justify-between text-[11px] text-muted-foreground">
                   <span>Smaller file</span>
                   <span>Better detail</span>

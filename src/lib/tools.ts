@@ -514,8 +514,10 @@ export function searchTools(query: string, tools: Tool[] = TOOLS): Tool[] {
       }
       // Respect direction: "pdf to word" should prefer PDF → DOCX
       if (terms.length >= 2) {
-        const first = ALIASES[terms[0]]?.[0] ?? terms[0];
-        const last = ALIASES[terms[terms.length - 1]]?.[0] ?? terms[terms.length - 1];
+        const firstTerm = terms[0]!;
+        const lastTerm = terms[terms.length - 1]!;
+        const first = ALIASES[firstTerm]?.[0] ?? firstTerm;
+        const last = ALIASES[lastTerm]?.[0] ?? lastTerm;
         if (tool.from.includes(first as FormatId) && tool.to === last) score += 4;
       }
       if (tool.status === "ready") score += 0.5;
