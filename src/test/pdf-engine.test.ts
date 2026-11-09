@@ -1,4 +1,3 @@
-// @vitest-environment node
 import { describe, expect, it } from "vitest";
 import { PDFDocument, PDFName } from "pdf-lib";
 import { imagesToPdf, jpegOrientation, layoutImagePage, mergePdfs, PdfInputError } from "@/lib/engines/pdf";
