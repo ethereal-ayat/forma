@@ -30,7 +30,7 @@ const SWATCHES = [
   { value: "#f4f1ea", label: "Paper" },
 ];
 
-function Segmented<T extends string>({ value, options, onChange }: { value: T; options: { value: T; label: string }[]; onChange: (v: T) => void }) {
+export function Segmented<T extends string>({ value, options, onChange }: { value: T; options: { value: T; label: string }[]; onChange: (v: T) => void }) {
   return (
     <div className="grid auto-cols-fr grid-flow-col rounded-lg bg-subtle p-0.5 shadow-[inset_0_0_0_1px_var(--hairline)]">
       {options.map((o) => (
@@ -50,7 +50,7 @@ function Segmented<T extends string>({ value, options, onChange }: { value: T; o
   );
 }
 
-function Field({ label, hint, children }: { label: string; hint?: React.ReactNode; children: React.ReactNode }) {
+export function Field({ label, hint, children }: { label: string; hint?: React.ReactNode; children: React.ReactNode }) {
   return (
     <div className="space-y-2">
       <div className="flex items-baseline justify-between">
