@@ -47,7 +47,8 @@ export const CATEGORIES: Category[] = [
 /** Which in-browser engine powers a ready tool. */
 export type EngineKind =
   | { type: "image"; output: "png" | "jpg" | "webp" | "auto"; mode?: "convert" | "compress" | "resize" }
-  | { type: "text"; transform: "csv-to-json" | "json-to-csv" | "json-format" | "md-to-html" | "html-to-text" };
+  | { type: "text"; transform: "csv-to-json" | "json-to-csv" | "json-format" | "md-to-html" | "html-to-text" }
+  | { type: "pdf"; op: "merge" | "images" };
 
 export type Tool = {
   id: string;
@@ -201,13 +202,13 @@ export const TOOLS: Tool[] = [
     from: ["pdf"],
     to: "pdf",
     summary: "Combine several PDFs into one.",
-    description: "Drag PDFs into order and combine them into a single document.",
-    status: "development",
+    description: "Put PDFs in the order you want and combine them into a single document, right on your device.",
+    status: "ready",
     phase: 2,
-    engineName: "pdf-lib (WebAssembly)",
+    engineName: "pdf-lib",
     keywords: ["merge", "combine", "join", "pdf"],
     multiple: true,
-    plannedOptions: ["Drag to reorder files", "Page thumbnails", "Bookmarks per file"],
+    engine: { type: "pdf", op: "merge" },
   },
   {
     id: "split-pdf",
@@ -272,13 +273,13 @@ export const TOOLS: Tool[] = [
     from: ["jpg", "png"],
     to: "pdf",
     summary: "Photos and scans into one PDF.",
-    description: "Combine photos, receipts and scans into a single tidy PDF.",
-    status: "development",
+    description: "Combine JPG and PNG photos, receipts and scans into one PDF — one image per page, never cropped.",
+    status: "ready",
     phase: 2,
-    engineName: "pdf-lib (WebAssembly)",
+    engineName: "pdf-lib",
     keywords: ["jpg", "png", "image", "photo", "scan", "pdf", "combine"],
     multiple: true,
-    plannedOptions: ["Page size (A4, Letter)", "Margins", "Fit or fill"],
+    engine: { type: "pdf", op: "images" },
   },
 
   // ——— Office documents (phase 3) ———

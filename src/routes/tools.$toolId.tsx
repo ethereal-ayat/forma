@@ -9,6 +9,7 @@ import { ToolCard } from "@/components/forma/ToolCard";
 import { ImageWorkspace } from "@/components/forma/workspaces/ImageWorkspace";
 import { TextWorkspace } from "@/components/forma/workspaces/TextWorkspace";
 import { PendingWorkspace } from "@/components/forma/workspaces/PendingWorkspace";
+import { PdfWorkspace } from "@/components/forma/workspaces/PdfWorkspace";
 
 export const Route = createFileRoute("/tools/$toolId")({
   loader: ({ params }) => {
@@ -65,6 +66,8 @@ function ToolPage() {
         <PendingWorkspace tool={tool} />
       ) : tool.engine?.type === "image" ? (
         <ImageWorkspace tool={tool} />
+      ) : tool.engine?.type === "pdf" ? (
+        <PdfWorkspace tool={tool} />
       ) : (
         <TextWorkspace tool={tool} />
       )}
