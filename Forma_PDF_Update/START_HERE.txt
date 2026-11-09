@@ -1,0 +1,48 @@
+FORMA — SPLIT PDF + ROTATE PDF UPDATE
+
+This update adds two browser-based tools using the existing pdf-lib dependency.
+It preserves the existing branding, styles, and other converters.
+
+INSTALL USING YOUR BROWSER (no code or terminal commands)
+1. Extract this ZIP on your computer.
+2. Open https://github.com/ethereal-ayat/forma and select your Lovable-connected branch.
+3. At the repository root, choose Add file > Upload files.
+4. Drag the extracted src folder into the upload area. Keep the folder structure:
+   files should appear under src/components, src/lib, src/routes, and src/test.
+   Do not upload this ZIP itself or flatten the files into the repository root.
+5. Review the six files and commit with the message: Add Split PDF and Rotate PDF.
+6. Open Lovable and allow the GitHub changes to sync, then test the tools in Preview.
+   No AI prompt is needed. Publishing, if desired, is a separate step.
+
+The repository instructions say commits on the connected branch sync to Lovable.
+If your GitHub code has changed since base commit 82fb6fe, ask for a refreshed update
+before uploading so newer edits are not overwritten.
+
+FEATURES
+- Split PDF: extract pages/ranges into one PDF in entered order, or split every N pages.
+- Use N=1 for one file per page. Each output has an individual Save PDF button.
+- Rotate PDF: clockwise 90, 180, or 270 degrees; all or selected pages.
+- Existing page rotations are respected. Original input files are not modified.
+- Invalid page numbers, damaged PDFs, and encrypted PDFs produce errors.
+- Changing options clears old results. Controls are disabled during processing.
+- Conversion runs in the browser; no new API, subscription, or dependency.
+
+VALIDATION
+- 37 automated tests passed, including original PDF tests and new UI interaction tests.
+- TypeScript check passed.
+- Production build passed (existing tsconfig-paths advisory remains).
+- ESLint passed for the new workspace and test files.
+- Real-browser visual and mobile checks of these new tools remain to be done.
+- Not yet pushed to GitHub or deployed: write authentication was unavailable.
+
+SCOPE / LIMITS
+This is the next two-tool increment, not completion of the entire roadmap.
+Split outputs are downloaded individually, not as a ZIP.
+Encrypted PDFs must be unlocked elsewhere first.
+Splitting copies page content; document-level bookmarks, forms, or signatures may
+not survive as fully functional document features. Use ordinary PDFs first.
+Very large PDFs can require substantial browser memory.
+No changes to package.json, bun.lock, colours, homepage, or existing converters.
+
+Base: 82fb6fe
+Local change commit: 699bbdf (forma/pdf-split-rotate)
